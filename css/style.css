@@ -1,0 +1,677 @@
+/******************************************/
+/* HEADER */
+/******************************************/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdf2e9;
+  padding: 0 4.8rem;
+  position: relative;
+
+  /* Becaise we want to be sticky later */
+  height: 9.6rem;
+}
+.logo {
+  height: 2.2rem;
+}
+
+/******************************************/
+/* NAVIGATION SECTION  */
+/******************************************/
+
+.main-nav-list,
+.mobile-navigation-bar {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  display: inline-block;
+  text-decoration: none;
+  color: #cf711f;
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  display: inline-block;
+  color: #fdf2e9;
+  padding: 1.2rem 2.4rem;
+  border-radius: 0.8rem;
+  background-color: #e67e22;
+  transition: all 0.3s ease-in-out;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  display: inline-block;
+  color: #fdf2e9;
+  padding: 1.2rem 2.4rem;
+  border-radius: 0.8rem;
+  background-color: #cf711f;
+}
+
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+}
+
+.icon-mobile-nav {
+  font-size: 4.8rem;
+  color: #333;
+}
+
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+
+/* Choosing the icon using its "name attribute" */
+.btn-mobile-nav-icon[name="menu-outline"] {
+}
+
+.btn-mobile-nav-icon[name="close-outline"] {
+}
+
+/* Sticky navigation */
+.sticky .header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: rgba(255, 255, 255, 0.97);
+  z-index: 999;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+}
+
+.sticky .section-hero {
+  margin-top: 9.6rem;
+}
+
+/******************************************/
+/* HERO SECTION  */
+/******************************************/
+.section-hero {
+  background-color: #fdf2e9;
+  padding: 4.8rem 0 9.6rem 0;
+}
+
+.hero {
+  margin: 0 auto;
+  padding: 0 3.2rem;
+  display: grid;
+  max-width: 130rem;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 9.6rem;
+}
+
+.hero-description {
+  font-size: 2rem;
+  line-height: 1.5;
+  margin-bottom: 4.8rem;
+}
+
+.hero-delivered-meals {
+  display: flex;
+  align-items: center;
+  margin-top: 8rem;
+  gap: 1.6rem;
+}
+
+.delivered-images {
+  display: flex;
+}
+
+.delivered-images img {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 50%;
+  margin-right: -1.6rem;
+  border: 0.3rem solid #fdf2e9;
+}
+
+.delivered-images img:last-child {
+  margin: 0;
+}
+
+.delivered-text {
+  font-size: 1.6rem;
+}
+
+.delivered-text span {
+  color: #cf711f;
+  font-weight: 700;
+}
+
+.hero-img {
+  width: 100%;
+}
+/******************************************/
+/* Featured In section  */
+/******************************************/
+
+.section-featured-in {
+  padding: 4.8rem 0 3.2rem 0;
+}
+
+.heading-featured-in {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.075rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2.4rem;
+  color: #999;
+}
+
+.featured-in-logo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.featured-in-logo img {
+  height: 3.2rem;
+  filter: brightness(0%);
+  opacity: 50%;
+}
+
+/******************************************/
+/* How it works section  */
+/******************************************/
+.section-how-it-works {
+  padding: 9.6rem 0;
+}
+
+.steps-img-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.steps-img-box::before,
+.steps-img-box::after {
+  position: absolute;
+  content: "";
+  display: block;
+  /* height: 60%; */
+
+  /* It's a very nice css trick to make shapes like this */
+  /* It's actually the width, but it got padding to the bottom 60% */
+  border-radius: 50%;
+}
+
+.steps-img-box::before {
+  background-color: #fdf2e9;
+  width: 60%;
+  z-index: -2;
+  padding-bottom: 60%;
+}
+
+.steps-img-box::after {
+  background-color: #f5cba7;
+  width: 45%;
+  z-index: -1;
+  padding-bottom: 45%;
+}
+
+.step-img {
+  width: 35%;
+}
+
+.step-number {
+  font-size: 8.6rem;
+  font-weight: 600;
+  color: #898989;
+  margin-bottom: 1.2rem;
+}
+
+.step-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+/******************************************/
+/* Meals section  */
+/******************************************/
+.meals-section {
+  padding: 9.6rem 0;
+}
+
+.meal {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 1.1rem;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.meal:nth-child(1):hover {
+  transform: translateY(-1.6rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+.meal:nth-child(2):hover {
+  transform: translateY(-1.6rem);
+}
+
+.meal-content {
+  padding: 3.2rem 4.8rem 4.8rem 4.8rem;
+}
+
+.meal-tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  background-color: #51cf66;
+  color: #333;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.meal-tags span:nth-child(2) {
+  background-color: #ffd43b;
+}
+
+.meal img {
+  width: 100%;
+}
+
+.meal-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 3.2rem;
+}
+
+.meal-attributes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.meal-attribute {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.meal-icon {
+  font-size: 2.4rem;
+  color: #e67e22;
+}
+
+.diet-list {
+  box-shadow: none;
+}
+
+.all-recipes {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: #e67e22;
+  border-bottom: 1px solid currentColor;
+  text-decoration: none;
+  padding-bottom: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  border-bottom: 1px solid transparent;
+}
+
+/******************************************/
+/* Testimonials section  */
+/******************************************/
+
+.section-testimonials {
+  background-color: #fdf2e9;
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  align-items: center;
+}
+
+.testimonial-container {
+  padding: 9.6rem;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 4.8rem;
+  column-gap: 8rem;
+}
+
+.testimonial-img {
+  width: 6.4rem;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+}
+
+.testimonial-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+
+.testimonial-name {
+  font-size: 1.6rem;
+  color: #6f6f6f;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  padding: 1.6rem;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.gallery-item img {
+  display: block;
+  border-radius: 1rem;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.1);
+}
+
+/******************************************/
+/* Pricing section  */
+/******************************************/
+
+.section-pricing {
+  padding: 9.6rem 0;
+}
+.pricing-plan {
+  background-color: #fdf2e9;
+  border-radius: 1.1rem;
+  width: 75%;
+}
+.pricing-plan:nth-child(1) {
+  justify-self: end;
+  background-color: transparent;
+  border: 2px solid #fdf2e9;
+  padding: 4.6rem;
+}
+.pricing-plan:nth-child(2) {
+  padding: 4.8rem;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-plan:nth-child(2)::after {
+  content: "BEST VALUE";
+  position: absolute;
+  top: 5%;
+  right: -19%;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #333;
+  background-color: #ffd43b;
+  padding: 0.8rem 8rem;
+  transform: rotate(45deg);
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+.plan-name {
+  color: #cf711f;
+  font-weight: 600;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75;
+  margin-bottom: 3.2rem;
+}
+.plan-price {
+  font-size: 6.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.6rem;
+}
+.plan-price span {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #555;
+  margin-right: 0.8rem;
+}
+.plan-text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #6f6f6f;
+}
+.plan-sign-up {
+  margin-top: 4.8rem;
+  text-align: center;
+}
+
+.plan-details {
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 1.6;
+}
+.feature-icon {
+  color: #e67e22;
+  height: 3.2rem;
+  width: 3.2rem;
+  margin-bottom: 3.2rem;
+  position: relative;
+  background-color: #fdf2e9;
+  padding: 1.6rem;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.feature-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+}
+.feature-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+/******************************************/
+/* CallToAction section  */
+/******************************************/
+.section-cta {
+  padding: 4.8rem 0 12.8rem 0;
+}
+
+.cta {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  background-image: linear-gradient(to top left, #e67e22, #eb984e);
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+  border-radius: 1.1rem;
+  overflow: hidden;
+}
+
+.cta-text-box {
+  color: #45260a;
+  padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+}
+
+.cta .heading-secondary {
+  color: inherit;
+  margin-bottom: 3.2rem;
+}
+
+.cta-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+
+.cta-image-box {
+  background-image: linear-gradient(
+      to top left,
+      rgba(230, 125, 34, 0.35),
+      rgba(235, 151, 78, 0.35)
+    ),
+    url("../img/eating.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2rem;
+  row-gap: 3.2rem;
+}
+
+.cta-form label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.cta-form input,
+.cta-form select {
+  width: 100%;
+  border: none;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  border-radius: 0.9rem;
+  font-family: inherit;
+  background-color: #fdf2e9;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: inherit;
+}
+
+.cta-form input::placeholder {
+  color: #aaa;
+}
+
+.cta *:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgb(253, 242, 233, 0.5);
+}
+
+/******************************************/
+/* Footer section  */
+/******************************************/
+.footer {
+  padding: 12.8rem 0;
+  border-top: 1px solid #eee;
+}
+
+.grid--footer {
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+}
+
+.logo-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  display: block;
+  margin-bottom: 3.2rem;
+}
+
+.social-links {
+  display: flex;
+  column-gap: 2.4rem;
+  list-style: none;
+}
+
+.social-icons {
+  font-size: 2.4rem;
+}
+
+.copyright {
+  font-size: 1.4rem;
+  color: #767676;
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+.contacts {
+  font-style: normal;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  /* Necessary for anchor */
+  color: inherit;
+  text-decoration: none;
+}
+.contacts p,
+.contacts a {
+  /* Necessary for anchor */
+  color: inherit;
+  text-decoration: none;
+}
+.contacts p:first-child {
+  margin-bottom: 2.4rem;
+}
+
+.footer-heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 4rem;
+  color: #555;
+}
+
+.footer-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.4rem;
+}
+
+.footer-link:link,
+.footer-link:visited {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #767676;
+  transition: all 0.3s ease-in-out;
+}
+.footer-link:hover,
+.footer-link:active {
+  color: #555;
+}

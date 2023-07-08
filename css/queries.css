@@ -1,0 +1,439 @@
+/* rem and em do NOT depend on HTML font-size in media queries 
+Instead, 1rem = 1em = 16px*/
+
+/* 
+
+--- 01 Typography System: 
+
+html : {
+  font-size : 62.5%;
+}
+
+FONT SIZE : 
+- Normal Text : / 10 / 12 / 14 / 16 / 18 /
+- Sub-Titles :  / 20 / 24 / 30 / 36 /
+- Titles : / 44 / 52 / 62 / 74 / 86 / 98 /
+
+Font weights
+- Default : 400
+- Medium : 500
+- Semi-bold : 600
+- Bold : 700
+
+Line heights : 
+- Default : 1 
+- Small : 1.05
+- Medium : 1.2
+
+- Paragraph default : 1.6   
+- For small text, use line height of 1.5≥
+- For titles or sub-titles, use line height of 1.5≤
+
+Letter Spacing :
+-0.5px
+0.75px
+
+--- 02 Colors
+
+- Brand color (Primary): #e67e22
+
+- Tint : 
+#fdf2e9
+#6f6f6f (Testimonial name)
+#eb984e (CTA)
+
+- Shades :
+#cf711f
+#45260a
+- Accent : 
+
+- Greys :
+#767676
+#6f6f6f
+#555
+#333
+
+--- 05 SHADOWS
+0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+
+
+--- 06 BORDER-RADIUS
+
+Default : 9px
+11px (card)
+
+
+--- 07 WHITESPACE
+
+- SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+/******************************************/
+/* BELOW 1344px (Smaller desktops) */
+/******************************************/
+
+@media (width <= 84em) {
+  /* Hero Section */
+
+  .hero {
+    max-width: 120rem;
+  }
+
+  .hero-heading-primary {
+    font-size: 4.4rem;
+  }
+
+  /* Testimonials Section */
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/******************************************/
+/* BELOW 1200px (Tablet Landscape) */
+/******************************************/
+
+@media (width <= 75em) {
+  html {
+    /* Didapat dari 9 / 16 = 0.562,5 or 56.25%*/
+    font-size: 56.25%;
+  }
+  .grid {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+  .heading-secondary {
+    font-size: 3.6rem;
+  }
+
+  .heading-tertiary {
+    font-size: 2.4rem;
+  }
+
+  .header {
+    padding: 0 3.2rem;
+  }
+
+  .main-nav-list {
+    gap: 3.2rem;
+  }
+
+  .hero {
+    gap: 4.8rem;
+  }
+
+  .testimonial-container {
+    padding: 9.6rem 3.2rem;
+  }
+}
+
+/******************************************/
+/* BELOW 944px (Tablet) */
+/******************************************/
+@media (width <= 59em) {
+  /* 8px / 16px = 0.5 = 50% */
+  html {
+    font-size: 50%;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 0 8rem;
+    gap: 6.4rem;
+  }
+
+  .hero-text-box,
+  .hero-image-box {
+    text-align: center;
+  }
+
+  .hero-img {
+    max-width: 60%;
+  }
+
+  .hero-delivered-meals {
+    justify-content: center;
+    margin-top: 3.2rem;
+  }
+
+  .featured-in-logo img {
+    height: 2.4rem;
+  }
+
+  .step-number {
+    font-size: 7.4rem;
+  }
+
+  .meal-content {
+    padding: 2.4rem 3.2rem 3.2rem 3.2rem;
+  }
+
+  .section-testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .cta {
+    /* 3fr di kiri dari 5 (since 3+2 = 5) and 2fr dari 5 di kanan (60/40)*/
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .cta-form {
+    grid-template-columns: 1fr;
+  }
+
+  .btn--form {
+    margin-top: 2.4rem;
+  }
+
+  /* MOBILE-NAVIGATION */
+  .btn-mobile-nav {
+    display: block;
+    z-index: 10;
+  }
+
+  .main-nav {
+    background-color: rgba(255, 255, 255, 0.6);
+    /* This is prefixs */
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+
+    /* when using display :none; we can't use transition */
+    /* 1. Hide the elements visually */
+    opacity: 0;
+
+    /* 2. Make it unaccessible to mouse and keyboard */
+    pointer-events: none;
+
+    /* 3. Hiding it from screen reader */
+    visibility: hidden;
+  }
+  /* ingat, susunan kode di CSS sangat penting / code structural in css is crucial */
+  /* This is like saying, when .nav-open exist, .main-nav will do the following */
+  /* Button tetap ada karena saat .nav-open */
+  .nav-open .main-nav {
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0%);
+  }
+
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+    row-gap: 4.8rem;
+  }
+
+  .main-nav-link {
+    font-size: 3.2rem;
+  }
+
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 3.2rem;
+  }
+}
+
+/******************************************/
+/* BELOW 704px (Smaller tablet) */
+/******************************************/
+@media (width <= 44em) {
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .diet-list {
+    grid-column: 1/-1;
+    justify-self: center;
+  }
+
+  .heading-secondary {
+    margin-bottom: 4.8rem;
+  }
+
+  .step-number {
+    font-size: 6.2rem;
+  }
+
+  .heading-tertiary {
+    margin-bottom: 2.4rem;
+  }
+
+  .pricing-plan {
+    width: 100%;
+  }
+
+  /* Settings the footer when width <= 44em (704px) */
+  /* So this will make the grid footer have 6 column
+  and then we put the column for the logo and the address in row number 2 
+  after that we span the column of nav-col and logo also adress col to fit
+  the 6 grid template columns
+  - Since logo and adress col basically 2 col, we use span 3 to fit both em to template columns
+  - And since nav-col consist of 3 col basically, we just need them to span 2...AMAZING*/
+
+  .grid--footer {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .logo-col,
+  .address-col {
+    grid-row: 2;
+    grid-column: span 3;
+  }
+
+  .nav-col {
+    grid-column: span 2;
+    margin-bottom: 3.2rem;
+  }
+}
+
+/******************************************/
+/* BELOW 544px (Phones) */
+/******************************************/
+@media (width <= 34em) {
+  .grid--2-cols,
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    row-gap: 4.8rem;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 2.4rem 1.6rem;
+  }
+
+  .section-hero {
+    padding: 2.4rem 0 6.4rem 0;
+  }
+
+  .hero {
+    padding: 0 3.2rem;
+  }
+
+  .delivered-images img {
+    height: 4.4rem;
+    width: 4.4rem;
+  }
+
+  .hero-img {
+    max-width: 80%;
+  }
+
+  .featured-in-logo img {
+    height: 1.2rem;
+  }
+
+  .steps-img-box:nth-child(2) {
+    grid-row: 1;
+  }
+  .steps-img-box:nth-child(6) {
+    grid-row: 5;
+  }
+
+  .steps-img-box {
+    transform: translateY(3.2rem);
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+
+  .cta {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-text-box {
+    padding: 2.4rem;
+  }
+
+  .cta-image-box {
+    height: 32em;
+    grid-row: 1;
+  }
+}
+
+/******************************************/
+/* Fixing gap in SAFARI OLD VERSIONS <= 2021  */
+/******************************************/
+.no-flexbox-gap .main-nav-list li:not(:last-child) {
+  margin-right: 4.8rem;
+}
+
+.no-flexbox-gap .list-item:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+
+.no-flexbox-gap .list-icon:not(:last-child) {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .delivered-faces {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .meal-attribute:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.no-flexbox-gap .meal-icon {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .footer-row div:not(:last-child) {
+  margin-right: 6.4rem;
+}
+
+.no-flexbox-gap .social-links li:not(:last-child) {
+  margin-right: 2.4rem;
+}
+
+.no-flexbox-gap .footer-nav li:not(:last-child) {
+  margin-bottom: 2.4rem;
+}
+
+@media (max-width: 75em) {
+  .no-flexbox-gap .main-nav-list li:not(:last-child) {
+    margin-right: 3.2rem;
+  }
+}
+
+@media (max-width: 59em) {
+  .no-flexbox-gap .main-nav-list li:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 4.8rem;
+  }
+}
